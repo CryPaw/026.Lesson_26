@@ -1,38 +1,24 @@
-const c1 = document.getElementById('c1');
-const d2 = document.getElementById('d2');
-const b3 = document.getElementById('b3');
+const catCatalog = document.getElementById('c1');
+const dogCatalog = document.getElementById('d2');
+const birdCatalog = document.getElementById('b3');
 
-const scc1 = document.querySelector('.q1');
-const sci1 = document.querySelector('.img1');
+const cats = document.querySelector(".cats")
+const dogs = document.querySelector(".dogs")
+const birds = document.querySelector(".birds")
 
-const scc2 = document.querySelector('.q2');
-const sci2 = document.querySelector('.img2');
+const selectedCategoryCats1 = document.querySelector('.q1');
+const selectedCategoryCats2 = document.querySelector('.q2');
+const selectedCategoryCats3 = document.querySelector('.q3');
 
-const scc3 = document.querySelector('.q3');
-const sci3 = document.querySelector('.img3');
+const selectedCategoryDogs1 = document.querySelector('.q1_1');
+const selectedCategoryDogs2 = document.querySelector('.q2_2');
+const selectedCategoryDogs3 = document.querySelector('.q3_3');
 
+const selectedCategoryBirds1 = document.querySelector('.q1_1_1');
+const selectedCategoryBirds2 = document.querySelector('.q2_2_2');
+const selectedCategoryBirds3 = document.querySelector('.q3_3_3');
 
-const scd1 = document.querySelector('.q1_1');
-const scdi1 = document.querySelector('.img1_1');
-
-const scd2 = document.querySelector('.q2_2');
-const scdi2 = document.querySelector('.img2_2');
-
-const scd3 = document.querySelector('.q3_3');
-const scdi3 = document.querySelector('.img3_3');
-
-
-const scb1 = document.querySelector('.q1_1_1');
-const scbi1 = document.querySelector('.img1_1_1');
-
-const scb2 = document.querySelector('.q2_2_2');
-const scbi2 = document.querySelector('.img2_2_2');
-
-const scb3 = document.querySelector('.q3_3_3');
-const scbi3 = document.querySelector('.img3_3_3');
-
-
-const pd = document.getElementById('pd');
+const productDescription = document.getElementById('pd');
 const pl = document.getElementById('pl2');
 const mybtn = document.querySelector('.mybtn');
 const removescc = document.querySelectorAll('.selectedCategory_cats');
@@ -42,189 +28,109 @@ title.id = 'tit_2';
 
 
 
+function catFood() {
+        productDescription.appendChild(title);
+        pl.style.setProperty("display", "flex");
+
+        dogs.style.setProperty("display", "none");
+        birds.style.setProperty("display", "none");
+        cats.style.setProperty("display", "flex");
+
+        selectedCategoryCats1.style.setProperty("display", "block");
+        selectedCategoryCats2.style.setProperty("display", "block");
+        selectedCategoryCats3.style.setProperty("display", "block");
+        
+}
+
+function dogFood() {
+        productDescription.appendChild(title);
+        pl.style.setProperty("display", "flex");
+        
+        cats.style.setProperty("display", "none");
+        birds.style.setProperty("display", "none");
+        dogs.style.setProperty("display", "flex");
+
+        selectedCategoryDogs1.style.setProperty("display", "block");
+        selectedCategoryDogs2.style.setProperty("display", "block");
+        selectedCategoryDogs3.style.setProperty("display", "block");
+        
+}
+
+function birdFood() {
+        productDescription.appendChild(title);
+        pl.style.setProperty("display", "flex");
+
+        cats.style.setProperty("display", "none");
+        dogs.style.setProperty("display", "none");
+        birds.style.setProperty("display", "flex");
+
+        selectedCategoryBirds1.style.setProperty("display", "block");
+        selectedCategoryBirds2.style.setProperty("display", "block");
+        selectedCategoryBirds3.style.setProperty("display", "block");
+}
+
 document.getElementById("pm").addEventListener("click", function(event) {
   
     let targetElement = event.target;
   
-    if (targetElement === c1) {
-        // alert("Cat-category");
-        pd.appendChild(title);
-        pl.style.setProperty("display", "flex");
-        scd1.style.setProperty("display", "none");
-        scd2.style.setProperty("display", "none");
-        scd3.style.setProperty("display", "none");
-        scb1.style.setProperty("display", "none");
-        scb2.style.setProperty("display", "none");
-        scb3.style.setProperty("display", "none");
-        scc1.style.setProperty("display", "block");
-        scc2.style.setProperty("display", "block");
-        scc3.style.setProperty("display", "block");
-      } else if (targetElement === d2){
-        pd.appendChild(title);
-        pl.style.setProperty("display", "flex");
-        scc1.style.setProperty("display", "none");
-        scc2.style.setProperty("display", "none");
-        scc3.style.setProperty("display", "none");
-        scb1.style.setProperty("display", "none");
-        scb2.style.setProperty("display", "none");
-        scb3.style.setProperty("display", "none");
-        scd1.style.setProperty("display", "block");
-        scd2.style.setProperty("display", "block");
-        scd3.style.setProperty("display", "block");
-      } else if (targetElement === b3){
-        pd.appendChild(title);
-        pl.style.setProperty("display", "flex");
-        scc1.style.setProperty("display", "none");
-        scc2.style.setProperty("display", "none");
-        scc3.style.setProperty("display", "none");
-        scd1.style.setProperty("display", "none");
-        scd2.style.setProperty("display", "none");
-        scd3.style.setProperty("display", "none");
-        scb1.style.setProperty("display", "block");
-        scb2.style.setProperty("display", "block");
-        scb3.style.setProperty("display", "block");
+    if (targetElement === catCatalog) {
+        catFood();
+      } else if (targetElement === dogCatalog){
+        dogFood();
+      } else if (targetElement === birdCatalog){
+        birdFood();
       }
   });
 
+  function addClone(targetElement) {
+    mybtn.style.setProperty("display", "inline-block");
+    let clone = targetElement.cloneNode(true);
+    title.appendChild(clone);
+    targetElement.style.setProperty("display", "none");
+  }
 
   document.getElementById("pl").addEventListener("click", function(event) {
   
     let targetElement = event.target;
-  
-    if (targetElement === scc1) {
-        mybtn.style.setProperty("display", "inline-block");
-        let clone = scc1.cloneNode(true);
-        title.appendChild(clone);
-        scc1.style.setProperty("display", "none");
-    } 
 
-    if (targetElement === sci1) {
-        mybtn.style.setProperty("display", "inline-block");
-        let clone = scc1.cloneNode(true);
-        title.appendChild(clone);
-        scc1.style.setProperty("display", "none");
-    } 
+    switch (targetElement) {
+            case selectedCategoryCats1:
+            addClone(targetElement);
+            break;
 
-    if (targetElement === scc2){
-        mybtn.style.setProperty("display", "inline-block");
-        let clone2 = scc2.cloneNode(true);
-        title.appendChild(clone2);
-        scc2.style.setProperty("display", "none");
-    } 
+            case selectedCategoryCats2:
+            addClone(targetElement);
+            break;
 
-    if (targetElement === sci2) {
-        mybtn.style.setProperty("display", "inline-block");
-        let clone2 = scc2.cloneNode(true);
-        title.appendChild(clone2);
-        scc2.style.setProperty("display", "none");
-    } 
+            case selectedCategoryCats3:
+            addClone(targetElement);
+            break;
 
-    if (targetElement === scc3){
-        mybtn.style.setProperty("display", "inline-block");
-        let clone3 = scc3.cloneNode(true);
-        title.appendChild(clone3);
-        scc3.style.setProperty("display", "none");
-    }
+            case selectedCategoryDogs1:
+            addClone(targetElement);
+            break;
 
-    if (targetElement === sci3) {
-        mybtn.style.setProperty("display", "inline-block");
-        let clone3 = scc3.cloneNode(true);
-        title.appendChild(clone3)
-        scc3.style.setProperty("display", "none");
-    }
+            case selectedCategoryDogs2:
+            addClone(targetElement);
+            break;
 
+            case selectedCategoryDogs3:
+            addClone(targetElement);
+            break;
 
+            case selectedCategoryBirds1:
+            addClone(targetElement);
+            break;
 
+            case selectedCategoryBirds2:
+            addClone(targetElement);
+            break;
 
+            case selectedCategoryBirds3:
+            addClone(targetElement);
+            break;
+    };
 
-    if (targetElement === scd1) {
-        mybtn.style.setProperty("display", "inline-block");
-        let clone = scd1.cloneNode(true);
-        title.appendChild(clone);
-        scd1.style.setProperty("display", "none");
-    } 
-
-    if (targetElement === scdi1) {
-        mybtn.style.setProperty("display", "inline-block");
-        let clone = scd1.cloneNode(true);
-        title.appendChild(clone);
-        scd1.style.setProperty("display", "none");
-    } 
-
-    if (targetElement === scd2){
-        mybtn.style.setProperty("display", "inline-block");
-        let clone2 = scd2.cloneNode(true);
-        title.appendChild(clone2);
-        scd2.style.setProperty("display", "none");
-    } 
-
-    if (targetElement === scdi2) {
-        mybtn.style.setProperty("display", "inline-block");
-        let clone2 = scd2.cloneNode(true);
-        title.appendChild(clone2);
-        scd2.style.setProperty("display", "none");
-    } 
-
-    if (targetElement === scd3){
-        mybtn.style.setProperty("display", "inline-block");
-        let clone3 = scd3.cloneNode(true);
-        title.appendChild(clone3);
-        scd3.style.setProperty("display", "none");
-    }
-
-    if (targetElement === scdi3) {
-        mybtn.style.setProperty("display", "inline-block");
-        let clone3 = scd3.cloneNode(true);
-        title.appendChild(clone3)
-        scd3.style.setProperty("display", "none");
-    } 
-    
-
-
-
-
-    if (targetElement === scb1) {
-        mybtn.style.setProperty("display", "inline-block");
-        let clone = scb1.cloneNode(true);
-        title.appendChild(clone);
-        scb1.style.setProperty("display", "none");
-    } 
-
-    if (targetElement === scbi1) {
-        mybtn.style.setProperty("display", "inline-block");
-        let clone = scb1.cloneNode(true);
-        title.appendChild(clone);
-        scb1.style.setProperty("display", "none");
-    } 
-
-    if (targetElement === scb2){
-        mybtn.style.setProperty("display", "inline-block");
-        let clone2 = scb2.cloneNode(true);
-        title.appendChild(clone2);
-        scb2.style.setProperty("display", "none");
-    } 
-
-    if (targetElement === scbi2) {
-        mybtn.style.setProperty("display", "inline-block");
-        let clone2 = scb2.cloneNode(true);
-        title.appendChild(clone2);
-        scb2.style.setProperty("display", "none");
-    } 
-
-    if (targetElement === scb3){
-        mybtn.style.setProperty("display", "inline-block");
-        let clone3 = scb3.cloneNode(true);
-        title.appendChild(clone3);
-        scb3.style.setProperty("display", "none");
-    }
-
-    if (targetElement === scbi3) {
-        mybtn.style.setProperty("display", "inline-block");
-        let clone3 = scb3.cloneNode(true);
-        title.appendChild(clone3)
-        scb3.style.setProperty("display", "none");
-    } 
-    
   });
 
   document.getElementById("pd").addEventListener("click", function(event) {
@@ -236,8 +142,6 @@ document.getElementById("pm").addEventListener("click", function(event) {
         title.replaceChildren('')
         mybtn.style.setProperty("display", "none");
         alert('Дякую за покупку!')
-        
-        
     } 
 
   });
